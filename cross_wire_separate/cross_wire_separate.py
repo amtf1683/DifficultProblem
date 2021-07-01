@@ -40,8 +40,6 @@ def cross_wire_separate():
     contour_flag = False
     #点到直线距离最大值(欧式距离)
     max_dis = 8
-    final_count = 0
-    print(skeleton.shape)
     # i：高 代表多少行，5：每一次移动多少行遍历，太大太小都不行,如果曲线是二条交叉的直线，取大取小都没问题
     # 当二条曲线是弯弯曲曲时这个取值就很关键，对于曲度变化的交叉曲线，此种方法不能很好的解决问题
     for i in range(0, skeleton.shape[0], 5):
@@ -119,7 +117,7 @@ def cross_wire_separate():
         for w in range(1, len(cluser_list[p_p])):
             cv2.line(img_test, (int(cluser_list[p_p][w - 1][0]), int(cluser_list[p_p][w - 1][1])),
                      (int(cluser_list[p_p][w][0]), int(cluser_list[p_p][w][1])), color_current, thickness=5)
-    new_path_name = str(final_count) + '_out.jpg'
+    new_path_name = 'test' + '_out.jpg'
     #缩放成原图大小
     img_test = cv2.resize(img_test, (int(img_test.shape[1]/scale), int(img_test.shape[0]/scale)))
     cv2.imwrite(new_path_name, img_test)
