@@ -64,7 +64,7 @@ def FitLineTest():
     point_color = (0, 0, 255) # BGR
     thickness = 4 # 可以为 0 、4、8
     cv2.circle(img, (70, 170), point_size, point_color, thickness)
-
+    cv2.imwrite('fitline_out.jpg', img)
     plt.subplot(236), plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)), plt.title('Line')
     plt.show()
 
